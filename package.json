@@ -1,0 +1,16 @@
+{
+  "name": "weight-recorder",
+  "version": "1.0.0",
+  "description": "体重管理アプリケーションです。",
+  "main": "src/app.js",
+  "author": "Kyatsuo",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=\"development\" node --watch src/server.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.2",
+    "hono": "^4.7.10"
+  }
+}
