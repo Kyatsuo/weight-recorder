@@ -13,6 +13,13 @@ services:
     build:
       context: "."
       dockerfile: "db.Dockerfile"
-
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: weight_recorder
+    volumes:
+      - weight-recorder-data:/var/lib/postgresql/data
 volumes:
   node_modules:
+  weight-recorder-data:
+    external: true
