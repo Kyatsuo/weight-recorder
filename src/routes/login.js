@@ -9,9 +9,8 @@ app.get('/', (c) => {
   return c.html(
     layout(
       c,
-      'Login',
+      '',
       html`
-        <h1>Login</h1>
         <a href="/auth/github">GitHub でログイン</a>
         ${user
           ? html`<p>現在 ${user.login} でログイン中</p>`

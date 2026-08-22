@@ -65,41 +65,61 @@ app.get('/', async (c) => {
       })
     : [];
 
-  return c.html(
-    layout(
-      c,
-      null,
-      html`
-        <div class="my-3">
-          <div class="p-5 bg-light rounded-3">
-            <h1 class="text-body">体重記録くん</h1>
-            <p class="lead">
-              毎日の体重を記録しよう
-            </p>
-          </div>
+return c.html(
+  layout(
+    c,
+    null,
+    html`
+      <div class="my-3">
+
+        <!-- ログイン状態 -->
+        <div class="d-flex justify-content-end">
+          ${user
+            ? html`
+                <a href="/logout" class="btn btn-outline-secondary">
+                  ログアウト
+                </a>
+              `
+            : html`
+                <a href="/login" class="btn btn-primary">
+                  ログイン
+                </a>
+              `}
         </div>
+
+        <div class="p-5 bg-light rounded-3">
+          <h1 class="text-body">体重記録くん</h1>
+          <p class="lead">
+            毎日の体重を記録しよう
+          </p>
+        </div>
+
         ${user
           ? html`
               <div class="my-3">
                 <p>
-                  <a href="/record" class="btn btn-primary">体重を記録する</a>
+                  <a href="/record" class="btn btn-primary">
+                    体重を記録する
+                  </a>
                 </p>
-              ${weights.length > 0
-                ? html`
-                    <div class="card shadow-sm">
-                      <div class="card-body">
-                        <h3 class="card-title">体重記録</h3>
-                        ${weightTable(weights)}
+
+                ${weights.length > 0
+                  ? html`
+                      <div class="card shadow-sm">
+                        <div class="card-body">
+                          <h3 class="card-title">体重記録</h3>
+                          ${weightTable(weights)}
+                        </div>
                       </div>
-                    </div>
-                  `
-                : ''}
+                    `
+                  : ''}
               </div>
             `
           : ''}
-      `,
-    ),
-  );
+      </div>
+    `,
+  ),
+);
 });
 
 module.exports = app;
