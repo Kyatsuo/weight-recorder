@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node --env-file .env src/server.js"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.2",
