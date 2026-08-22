@@ -20,4 +20,4 @@ COPY . .
 
 RUN npx prisma generate
 
-CMD ["yarn", "start"]
+CMD ["sh", "-c", "yarn prisma migrate deploy && yarn start"]
