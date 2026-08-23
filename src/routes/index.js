@@ -21,10 +21,10 @@ function weightTable(weights) {
         const previousWeight = weights[index - 1];
 
         const previousDifference = previousWeight
-          ? weight.weight - previousWeight.weight
+          ? Math.floor((eight.weight - previousWeight.weight) * 100) / 100
           : null;
 
-        const startDifference = weight.weight - weights[0].weight;
+        const startDifference = Math.floor((weight.weight - weights[0].weight) * 100) / 100;
 
         return html`
           <tr>
