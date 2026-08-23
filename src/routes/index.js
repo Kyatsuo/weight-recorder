@@ -18,13 +18,12 @@ function weightTable(weights) {
       </tr>
 
       ${weights.map((weight, index) => {
-        const previousWeight = weights[index - 1];
-
         const previousDifference = previousWeight
-          ? Math.floor((weight.weight - previousWeight.weight) * 10) / 10
+          ? Math.round((weight.weight - previousWeight.weight) * 10) / 10
           : null;
 
-        const startDifference = Math.floor((weight.weight - weights[0].weight) * 10) / 10;
+        const startDifference =
+          Math.round((weight.weight - weights[0].weight) * 10) / 10;
 
         return html`
           <tr>
