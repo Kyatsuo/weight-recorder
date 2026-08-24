@@ -62,7 +62,7 @@ app.get('/', async (c) => {
   const weights = user
     ? await prisma.weight.findMany({
         where: { createdBy: user.id },
-        orderBy: { date: 'desc' },
+        orderBy: { date: 'asc' },
       })
     : [];
 
